@@ -6,6 +6,7 @@ Warming up
     3. initialize .gitignore in the repository root (you can use this sample)
     4. create a homework1 directory in the repo
     5. then copy the sample_project into the directory.
+
     6. fix all bugs in the sample_project code
     7. write an extra test for each found bug
 """
