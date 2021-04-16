@@ -11,7 +11,7 @@ def gen_fibonacci(n: int) -> Sequence[int]:
     """Generates Fibonacci sequence from 0 to a number less then or equal to n.
     NB! If n == 1, the function will return [0, 1, 1]"""
     if n < 0:
-        return None
+        return []
     fib_seq = []
     f0, f1 = 0, 1
     while f0 <= n:
@@ -27,8 +27,6 @@ def check_fibonacci(data: Sequence[int]) -> bool:
         return True
     n = data[-1]
     reference_seq = gen_fibonacci(n)
-    if reference_seq is None:
-        return False
     if len(data) > len(reference_seq):
         return False
     for element in reversed(data):

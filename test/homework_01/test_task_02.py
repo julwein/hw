@@ -1,5 +1,3 @@
-import pytest
-
 from homework_01.task_02 import check_fibonacci
 
 
