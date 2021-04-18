@@ -21,7 +21,7 @@ def check_power_of_2(a: int) -> bool:
         1000
       & 0111
       = 0000
-    Thus, bool(~(a & (a - 1))) gives True in this case.
+    Thus, bool(not (a & (a - 1))) gives True in this case.
     Besides, we should exclude the case of a = 0 which is not an integer power of 2,
     but 0 & -1 in two's-complement representation also gives 0:
         00...0
