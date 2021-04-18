@@ -11,6 +11,6 @@ def test_negative_case():
     assert not check_power_of_2(12)
 
 
-def test_zero():
+def test_zero_is_not_power_of_2():
     """Testing that 0 gives False"""
     assert not check_power_of_2(0)
