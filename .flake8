@@ -5,7 +5,7 @@ exclude =
     *_venv
     venv_*
     venv
-max-cognitive-complexity = 10
+max-cognitive-complexity = 14
 per-file-ignores =
     test*.py: S101
     # Skip unused imports in __init__ files
