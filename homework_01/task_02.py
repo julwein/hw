@@ -29,7 +29,7 @@ def check_fibonacci(data: Sequence[int]) -> bool:
     beginning = data[0]
     end = data[-1]
     ref_seq = gen_fibonacci(beginning, end)
-    # remove duplicate 1 in ref_seq if there's only one 1 in data and
+    # Remove duplicate 1 from ref_seq if there's only one 1 in data and
     # it's at the beginning or at the end of the data list:
     if (data.count(1) == 1) and (beginning == 1 or end == 1) and (1 in ref_seq):
         ref_seq.remove(1)
