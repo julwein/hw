@@ -7,30 +7,30 @@ We guarantee, that the given sequence contains >= 0 integers inside.
 from typing import Sequence
 
 
-def gen_fibonacci(n: int) -> Sequence[int]:
+def gen_fibonacci(beginning: int, end: int) -> Sequence[int]:
     """Generates Fibonacci sequence from 0 to a number less then or equal to n.
-    NB! If n == 1, the function will return [0, 1, 1]"""
-    if n < 0:
+    NB! gen_fibonacci(0, 1) will return [0, 1, 1]
+        gen_fibonacci(1, n) will return [1, 1, ..., k<=n]"""
+    if beginning > end or beginning < 0 or end < 0:
         return []
     fib_seq = []
     f0, f1 = 0, 1
-    while f0 <= n:
-        fib_seq.append(f0)
+    while f0 <= end:
+        if f0 >= beginning:
+            fib_seq.append(f0)
         f0, f1 = f1, f0 + f1
     return fib_seq
 
 
 def check_fibonacci(data: Sequence[int]) -> bool:
+    """Return whether data is a subsequence of Fibonacci sequence"""
     if not data:
         return False
-    if data == [0, 1]:
-        return True
-    n = data[-1]
-    reference_seq = gen_fibonacci(n)
-    if len(data) > len(reference_seq):
-        return False
-    for element in reversed(data):
-        ref_number = reference_seq.pop()
-        if element != ref_number:
-            return False
-    return True
+    beginning = data[0]
+    end = data[-1]
+    ref_seq = gen_fibonacci(beginning, end)
+    # remove duplicate 1 in ref_seq if there's only one 1 in data and
+    # it's at the beginning or at the end of the data list:
+    if (data.count(1) == 1) and (beginning == 1 or end == 1) and (1 in ref_seq):
+        ref_seq.remove(1)
+    return data == ref_seq
