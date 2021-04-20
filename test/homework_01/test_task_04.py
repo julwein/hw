@@ -1,4 +1,8 @@
-from homework_01.task_04 import check_sum_of_four
+from homework_01.task_04 import check_sum_of_four, count_list_elements
+
+
+def test_count_list_elements():
+    assert count_list_elements([1, -1, 1]) == {1: 2, -1: 1}
 
 
 def test_lists_length_0_return_0():
