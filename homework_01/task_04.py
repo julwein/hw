@@ -7,15 +7,19 @@ We guarantee, that all A, B, C, D have the same length of N where 0 ≤ N ≤ 10
 from typing import List
 
 
-def check_sum_of_four(a: List[int], b: List[int], c: List[int], d: List[int]) -> int:
-    zero_sums_count = 0
+def count_list_elements(d: List[int]) -> dict:
     d_dict = {}
     for z in d:
         if z not in d_dict:
             d_dict[z] = 1
         else:
             d_dict[z] += 1
+    return d_dict
 
+
+def check_sum_of_four(a: List[int], b: List[int], c: List[int], d: List[int]) -> int:
+    zero_sums_count = 0
+    d_dict = count_list_elements(d)
     for w in a:
         for x in b:
             wx = w + x
