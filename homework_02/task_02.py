@@ -14,5 +14,13 @@ Output: 2, 1
 from typing import List, Tuple
 
 
-def major_and_minor_elem(inp: List) -> Tuple[int, int]:
-    ...
+def major_and_minor_elem(inp: List[int]) -> Tuple[int, int]:
+    """Что делать, если окажется несколько самых частых/редких элементов?"""
+    el_occurance = {}
+    for el in inp:
+        if el not in el_occurance:
+            el_occurance[el] = 1
+        else:
+            el_occurance[el] += 1
+
+    return
