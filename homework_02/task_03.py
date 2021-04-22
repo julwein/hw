@@ -11,9 +11,19 @@ assert combinations([1, 2], [3, 4]) == [
     [2, 4],
 ]
 """
+from itertools import product
 from typing import Any, List
 
 
 def combinations(*args: List[Any]) -> List[List]:
+    """
+    Return a list of all possible lists made up of elements from the input lists.
 
-    return
+    Test from the example
+    >>> combinations([1, 2], [3, 4])
+    [[1, 3], [1, 4], [2, 3], [2, 4]]
+    """
+    outp_lst = []
+    for tup in product(*args):
+        outp_lst.append(list(tup))
+    return outp_lst
