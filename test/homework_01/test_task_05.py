@@ -7,3 +7,7 @@ def test_nums_3_2_1_k_1_return_3():
 
 def test_nums_3_2_1_k_10_return_6():
     assert find_maximal_subarray_sum([3, 2, 1], 10) == 6
+
+
+def test_nums_42_k_10_return_6():
+    assert find_maximal_subarray_sum([42], 10) == 42

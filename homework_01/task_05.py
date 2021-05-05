@@ -16,13 +16,12 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     """
     max_sum = nums[0]
     k = min(k, len(nums))  # in case k > len(nums)
-    for m in range(1, k + 1):  # m - various sub-array lengths = sliding window width
+    for m in range(1, k + 1):  # m - various subarray lengths = sliding window width
         s = sum(nums[:m])  # s - initial sum of elements inside the sliding window
         if s > max_sum:
             max_sum = s
-        for i in range(
-            1, len(nums) - m + 1
-        ):  # i - position of the first element in the sliding window
+        for i in range(1, len(nums) - m + 1):
+            # i - position of the first element of the sliding window
             s = s - nums[i - 1] + nums[i + m - 1]
             if s > max_sum:
                 max_sum = s
