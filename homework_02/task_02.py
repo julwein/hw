@@ -15,7 +15,7 @@ from typing import List, Tuple
 
 
 def major_and_minor_elem(inp: List[int]) -> Tuple[int, int]:
-    """Что делать, если окажется несколько самых частых/редких элементов?"""
+    """Что делать, если окажется несколько самых редких элементов?"""
     el_occurance = {}
     for el in inp:
         if el not in el_occurance:
