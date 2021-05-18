@@ -18,11 +18,10 @@ def combinations(*args: List[Any]) -> List[List]:
     """
     Return a list of all possible lists made up of elements from the input lists.
     """
-    print(args)
     if len(args) == 1:
         for el in args[0]:
             yield [el]
     elif len(args) > 1:
         for el in args[-1]:
-            for lst in combinations(*args[:-2]):
+            for lst in combinations(*args[:-1]):
                 yield lst.append(el)
