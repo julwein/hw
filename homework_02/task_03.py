@@ -22,6 +22,6 @@ def combinations(*args: List[Any]) -> List[List]:
         for el in args[0]:
             yield [el]
     elif len(args) > 1:
-        for el in args[-1]:
-            for lst in combinations(*args[:-1]):
-                yield lst.append(el)
+        for lst in combinations(*args[:-1]):
+            for el in args[-1]:
+                yield lst + [el]
