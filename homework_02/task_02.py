@@ -1,7 +1,7 @@
 """
 Given an array of size n, find the most common and the least common elements.
 The most common element is the element that appears more than n // 2 times.
-The least common element is the element that appears fewer than other.
+The least common element is the element that appears fewer than others.
 You may assume that the array is non-empty and the most common element
 always exist in the array.
 Example 1:
@@ -11,16 +11,15 @@ Example 2:
 Input: [2,2,1,1,1,2,2]
 Output: 2, 1
 """
+from collections import Counter
 from typing import List, Tuple
 
 
 def major_and_minor_elem(inp: List[int]) -> Tuple[int, int]:
-    """Что делать, если окажется несколько самых редких элементов?"""
-    el_occurance = {}
-    for el in inp:
-        if el not in el_occurance:
-            el_occurance[el] = 1
-        else:
-            el_occurance[el] += 1
-
-    return
+    """
+    Return tuple (most_common_element, least_common_element).
+    """
+    el_occurance = Counter(inp).most_common()
+    most_common_el = el_occurance[0][0]
+    least_common_el = el_occurance[-1][0]
+    return most_common_el, least_common_el
