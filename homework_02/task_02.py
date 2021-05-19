@@ -19,7 +19,7 @@ def major_and_minor_elem(inp: List[int]) -> Tuple[int, int]:
     """
     Return tuple (most_common_element, least_common_element).
     """
-    el_occurance = Counter(inp).most_common()
-    most_common_el = el_occurance[0][0]
-    least_common_el = el_occurance[-1][0]
+    el_sort_by_frequency = sorted(Counter(inp))
+    most_common_el = el_sort_by_frequency[0]
+    least_common_el = el_sort_by_frequency[-1]
     return most_common_el, least_common_el
