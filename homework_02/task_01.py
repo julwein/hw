@@ -67,40 +67,40 @@ def get_rarest_char(file_path: str, encoding: str = "unicode-escape") -> str:
     """
     Find rarest symbol for document.
     """
-    chars = [
-        symb
-        for token_type, symb in tokenize(file_path, encoding)
-        if token_type == "symbol"
-    ]
-    char_counter = Counter(chars)
-    n_min = len(chars)
-    for symb, n in char_counter.items():
-        if n < n_min:
-            symb_min = symb
-            n_min = n
-    return symb_min
+    char_counter = Counter(
+        [
+            symb
+            for token_type, symb in tokenize(file_path, encoding)
+            if token_type == "symbol"
+        ]
+    )
+    return min(char_counter, key=char_counter.get)
 
 
 def count_punctuation_chars(file_path: str, encoding: str = "unicode-escape") -> int:
     """
     Count every punctuation char.
     """
-    count = 0
-    for token_type, _symb in tokenize(file_path, encoding):
-        if token_type == "punctuation":
-            count += 1
-    return count
+    return len(
+        [
+            token
+            for token_type, token in tokenize(file_path, encoding)
+            if token_type == "punctuation"
+        ]
+    )
 
 
 def count_non_ascii_chars(file_path: str, encoding: str = "unicode-escape") -> int:
     """
     Count every punctuation char.
     """
-    count = 0
-    for token_type, _symb in tokenize(file_path, encoding):
-        if token_type == "non-ascii":
-            count += 1
-    return count
+    return len(
+        [
+            token
+            for token_type, token in tokenize(file_path, encoding)
+            if token_type == "non-ascii"
+        ]
+    )
 
 
 def get_most_common_non_ascii_char(
@@ -109,16 +109,11 @@ def get_most_common_non_ascii_char(
     """
     Find most common non-ascii char for document.
     """
-    symb_counter = Counter(
+    non_ascii_counter = Counter(
         [
-            symb
-            for token_type, symb in tokenize(file_path, encoding)
+            token
+            for token_type, token in tokenize(file_path, encoding)
             if token_type == "non-ascii"
         ]
     )
-    n_max = 0
-    for symb, n in symb_counter.items():
-        if n > n_max:
-            symb_max = symb
-            n_max = n
-    return symb_max
+    return max(non_ascii_counter, key=non_ascii_counter.get)
