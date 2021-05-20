@@ -14,4 +14,11 @@ from typing import Callable
 
 
 def cache(func: Callable) -> Callable:
-    ...
+    calls = {}
+
+    def inner(*args):
+        if args not in calls:
+            calls[args] = func(*args)
+        return calls[args]
+
+    return inner
