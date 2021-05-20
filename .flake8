@@ -1,5 +1,5 @@
 [flake8]
-ignore = E203, E501, W503,  # handled by black
+ignore = E203, E501, W503, S105  # handled by black
 
 exclude =
     *_venv
